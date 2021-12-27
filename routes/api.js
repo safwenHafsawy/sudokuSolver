@@ -6,22 +6,23 @@ module.exports = function(app) {
   let solver = new SudokuSolver();
 
   app.route("/api/check").post((req, res) => {
-    //getting the data from the req body
-    const {puzzle, coordinate, value} = req.body;
+    const numberpatt = /[1-9]/;
+    const requiredFields = ["puzzle", "coordinate", "value"];
     //checking if all fields are there
-    if (
-      puzzle === undefined ||
-      coordinate === undefined ||
-      value === undefined
-    ) {
-      res.json({error: "Required field(s) missing"});
-    }
+
+    requiredFields.forEach(ele => {
+      if (!req.body.hasOwnProperty(ele) || req.body[ele] == "") {
+        return res.json({error: "Required field(s) missing"});
+      }
+    });
+    //getting the data from req body
+    const {puzzle, coordinate, value} = req.body;
     //getting the row name and column index
     const row = coordinate[0].toUpperCase();
     const column = coordinate[1];
     //checking if the puzzle string given, row ,col and value are valid
     //checking if value is between 1 and 9
-    if (parseInt(value) > 9 || parseInt(value) < 1 || value == "")
+    if (!numberpatt.test(parseInt(value)) || value.toString().length > 1)
       return res.json({error: "Invalid value"});
     //puzzle validation
     const isValid = solver.validate(puzzle);
