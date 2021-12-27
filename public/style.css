@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap");
+
+:root {
+  --main-color: #e4d6a7;
+  --secondary-color: #1c110a;
+  --border-color: #9b2915;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-color);
+  margin: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#page-header {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+  width: 300px;
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 95%;
+}
+
+.form-container {
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*solve form */
+#solve-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+  width: fit-content;
+  padding: 8px;
+  margin: 5px;
+}
+
+textarea {
+  width: fit-content;
+  resize: none;
+  margin: 5px 5px 10px 5px;
+  background-color: var(--main-color);
+  border-color: var(--secondary-color);
+  font-family: monospace;
+  border-radius: 5px;
+}
+
+textarea:focus {
+  outline: 2px solid var(--border-color);
+  border-color: var(--border-color);
+}
+
+/*check-form*/
+#check-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid var(--border-color);
+  padding: 5px;
+  width: 300px;
+}
+
+.coord-wrapped {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-color);
+}
+
+.checker {
+  background-color: var(--main-color);
+  border-color: var(--secondary-color);
+  width: 250px;
+  border-radius: 5px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.checker:focus {
+  outline: 1px solid var(--border-color);
+  border-color: var(--border-color);
+}
+
+#error {
+  color: var(--secondary-color);
+  display: inline;
+  margin-left: 10px;
+  height: 10px;
+}
+
+input[type="button"] {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  border: 2px solid var(--border-color);
+  font-weight: bold;
+  width: 150px;
+  align-self: center;
+  border-radius: 3px;
+}
+
+input[type="button"]:active {
+  background-color: var(--main-color);
+  color: var(--border-color);
+  border-color: var(--secondary-color);
+}
+
+/*sudoku grid */
+#sudoku-grid-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  border-left: 2px solid var(--border-color);
+  padding: 20px;
+  align-self: center;
+}
+
+#sudoku-grid {
+  text-align: center;
+  display: inline;
+}
+
+.grid {
+  border: 3px solid var(--border-color);
+  border-spacing: 0;
+}
+
+td {
+  padding: 0.3em;
+}
+
+.yAxisLegend {
+  margin-top: 50px;
+  text-align: right;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.yAxisLegend tr td {
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 2em;
+  height: 1.9em;
+}
+
+.xAxisLegend {
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-spacing: 0;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.xAxisLegend tr td {
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 0;
+}
+
+.xAxisLegend tr td:nth-of-type(3n) {
+  border-right: 1px solid rgba(0, 0, 0, 0);
+}
+
+.sudoku-input {
+  border: 1px dotted var(--border-color);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  color: var(--secondary-color);
+  font-family: "Ubuntu", sans-serif;
+}
+
+.C1,
+.C2,
+.C3,
+.C4,
+.C5,
+.C6,
+.C7,
+.C8,
+.C9,
+.F1,
+.F2,
+.F3,
+.F4,
+.F5,
+.F6,
+.F7,
+.F8,
+.F9 {
+  border-bottom: 3px solid var(--border-color);
+}
+
+.A3,
+.B3,
+.C3,
+.D3,
+.E3,
+.F3,
+.G3,
+.H3,
+.I3,
+.A6,
+.B6,
+.C6,
+.D6,
+.E6,
+.F6,
+.G6,
+.H6,
+.I6 {
+  border-right: 3px solid var(--border-color);
+}
+
+#error {
+  margin: 5px;
+  color: var(--secondary-color);
+}
+
+@media (min-width: 800px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .form-container {
+    align-self: center;
+  }
+}
