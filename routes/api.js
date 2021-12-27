@@ -21,7 +21,7 @@ module.exports = function(app) {
     const column = coordinate[1];
     //checking if the puzzle string given, row ,col and value are valid
     //checking if value is between 1 and 9
-    if (parseInt(value) > 9 || parseInt(value) < 1 || parseInt(value) === NaN)
+    if (parseInt(value) > 9 || parseInt(value) < 1 || value == "")
       return res.json({error: "Invalid value"});
     //puzzle validation
     const isValid = solver.validate(puzzle);
